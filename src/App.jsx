@@ -96,6 +96,10 @@ const App = () => {
     return total + currentMember.strength;
   }, 0);
 
+  let totalAgility = team.reduce((total,currentMember) => {
+    return total + currentMember.agility;
+  }, 0);
+
 const handleAddFighter = (fighter) => {
 
     // GOAL -> subtract added characters price from current money value
@@ -116,13 +120,29 @@ const handleAddFighter = (fighter) => {
       setzombieFighters(updatedZombieFighters)
 
       setMoney(newMoneyValue);
-
-      
-    
     console.log(team)
-     
-}
+   }
 
+
+
+const handleRemoveFighter = (fighter) => {
+
+const refundedMoneyValue = (money + fighter.price)
+setMoney(refundedMoneyValue);
+//remove the fighter from team 
+const updatedTeamFighters = team.filter((zFighter) => fighter.id !== zFighter.id )
+setTeam(updatedTeamFighters)
+//add back to zombiefighters
+const updatedZombieFighters = [...zombieFighters, fighter]
+setzombieFighters(updatedZombieFighters)
+
+
+
+
+
+
+
+}
 
   return (
     <>
@@ -138,7 +158,7 @@ const handleAddFighter = (fighter) => {
           Strength: {zFighter.strength}
           Agility: {zFighter.agility}
           <img src={zFighter.img} alt="Zombie fighter Image" /> 
-          <button>Example</button>
+          <button onClick={ () => handleRemoveFighter(zFighter)}>Remove Fighter</button>
            </li>
         )) : <h3> Pick some team members!</h3>
       }
@@ -146,6 +166,7 @@ const handleAddFighter = (fighter) => {
 
       
       <h3>Total Strength: {totalStrength}</h3>
+      <h3>Total Agility: {totalAgility}</h3>
       
 
       <h3>Available Fighters</h3>
