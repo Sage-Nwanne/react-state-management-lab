@@ -173,12 +173,12 @@ setzombieFighters(updatedZombieFighters)
       <ul>
         {zombieFighters.map((zFighter) => (
           <li key={zFighter.id}> 
-          Name:{zFighter.name}
-          Price: {zFighter.price}
-          Strength: {zFighter.strength}
-          Agility: {zFighter.agility}
+          <p>Name:{zFighter.name}</p>
+          <p>Price: {zFighter.price}</p>
+          <p>Strength: {zFighter.strength}</p>
+          <p>Agility: {zFighter.agility}</p>
           <img src={zFighter.img} alt="Zombie fighter Image" /> 
-          <button onClick={ () => handleAddFighter(zFighter)}>Add Fighter</button>
+          <p><button onClick={ () => handleAddFighter(zFighter)}>Add Fighter</button></p>
            </li>
         ))}      
       </ul>
