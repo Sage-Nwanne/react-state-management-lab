@@ -92,6 +92,10 @@ const App = () => {
   ]
   );
 
+  let totalStrength = team.reduce((total,currentMember) => {
+    return total + currentMember.strength;
+  }, 0);
+
 const handleAddFighter = (fighter) => {
 
     // GOAL -> subtract added characters price from current money value
@@ -112,17 +116,13 @@ const handleAddFighter = (fighter) => {
       setzombieFighters(updatedZombieFighters)
 
       setMoney(newMoneyValue);
+
+      
     
     console.log(team)
-      //its showing an index behind on team in my console.
+     
 }
 
-const fighterStrength = team.map((fighter) => {
-  return (
-    fighter.strength
-  )
-})
-const totalStrength = fighterStrength.flat
 
   return (
     <>
